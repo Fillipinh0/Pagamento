@@ -37,7 +37,7 @@ namespace MyApp
                 Console.Write("Contract value: ");
                 double contrectValue = double.Parse(Console.ReadLine().Trim(), CultureInfo.InvariantCulture);
 
-                Console.WriteLine("Enter number of installments: ");
+                Console.Write("Enter number of installments: ");
                 int installmentsNumber = int.Parse(Console.ReadLine().Trim());
 
                 Contracts contract = new Contracts(number, contractDate, contrectValue, installmentsNumber);
