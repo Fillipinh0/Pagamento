@@ -10,7 +10,7 @@ namespace Pagamento.Entities
     {
         private double _amount;
         public DateTime DueDate { get; set; }
-        public double Amount { get => _amount; private set => _amount = value + (value * 2 / 100); }
+        public double Amount { get => _amount; protected set => _amount = value; }
         public Installment(DateTime dueDate, double amount)
         {
             DueDate = dueDate;

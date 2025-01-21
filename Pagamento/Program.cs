@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Runtime.Intrinsics.Arm;
 using Pagamento.Entities;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Pagamento.Services;
 
 namespace MyApp
 {
@@ -41,8 +42,8 @@ namespace MyApp
                 int installmentsNumber = int.Parse(Console.ReadLine().Trim());
 
                 Contracts contract = new Contracts(number, contractDate, contrectValue, installmentsNumber);
-                
-                Console.WriteLine(contract.ToString());
+                ContractService contractService = new ContractService(contract);
+                Console.WriteLine(contractService.Contract.ToString());
 
 
             }

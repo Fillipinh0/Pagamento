@@ -13,11 +13,13 @@ namespace Pagamento.Entities
         private string _number;
         private DateTime _date;
         private double _totalValue;
+        private int _installmentsNumber;
 
         public string Number { get => _number; set => _number = value.Trim(); }
         public DateTime Date { get => _date; set => _date = value; }
         public double TotalValue { get => _totalValue; set => _totalValue = value; }
-        
+        public int InstallmentsNumber { get => _installmentsNumber; set => _installmentsNumber = value; }
+
         public List<Installment> Installments { get; set; } = new List<Installment>();
 
         public Contracts(string number, DateTime date, double totalValaue, int installmentsNumber)
@@ -25,21 +27,9 @@ namespace Pagamento.Entities
             Number = number;
             Date = date;
             TotalValue = totalValaue;
-            InstallmentCreation(installmentsNumber);
-
+            InstallmentsNumber = installmentsNumber;
         }
 
-       public void InstallmentCreation(int installmentsNumber)
-        {
-            double valuePerInstallment = TotalValue / installmentsNumber;
-            for (int i = 1; i <= installmentsNumber; i++)
-            {
-                DateTime DateForMonth = Date.AddMonths(i);
-                double installmentValue = valuePerInstallment + ((valuePerInstallment / 100) * i);
-                Installments.Add(new Installment(DateForMonth, installmentValue));
-
-            }
-        }
 
         public override string ToString()
         {
