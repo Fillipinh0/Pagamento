@@ -41,8 +41,7 @@ namespace MyApp
                 Console.Write("Enter number of installments: ");
                 int installmentsNumber = int.Parse(Console.ReadLine().Trim());
 
-                Contracts contract = new Contracts(number, contractDate, contrectValue, installmentsNumber);
-                ContractService contractService = new ContractService(contract);
+                ContractService contractService = new ContractService(new Contracts(number, contractDate, contrectValue, installmentsNumber));
                 Console.WriteLine(contractService.Contract.ToString());
 
 
